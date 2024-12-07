@@ -37,10 +37,20 @@
     <Folder Include="Building_Map\static\" />
     <Folder Include="Building_Map\static\content\" />
     <Folder Include="Building_Map\static\fonts\" />
+    <Folder Include="Building_Map\static\Images\" />
     <Folder Include="Building_Map\static\scripts\" />
     <Folder Include="Building_Map\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Building_Map\static\content\styles.css" />
+    <Content Include="Building_Map\static\Images\1st floor.png" />
+    <Content Include="Building_Map\static\Images\2nd floor.png" />
+    <Content Include="Building_Map\static\Images\3rd floor.png" />
+    <Content Include="Building_Map\static\Images\Feedback icon.png" />
+    <Content Include="Building_Map\static\Images\Fire_exit_icon.png" />
+    <Content Include="Building_Map\static\Images\Home_icon.png" />
+    <Content Include="Building_Map\templates\index1.html" />
+    <Content Include="Building_Map\templates\index2.html" />
     <Content Include="requirements.txt" />
     <Content Include="Building_Map\static\content\bootstrap.css" />
     <Content Include="Building_Map\static\content\bootstrap.min.css" />

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAVIGATION MAP</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <header>
+
+    <div class="select_campus">
+      <select id="options" name="options">
+        <option value="option1">SV CAMPUS</option>
+        <option value="option2">ST CAMPUS</option>
+      </select>
+    </div>
+    
+    <div class="home-container">
+      <button id="btn_home" class="home_button"> <!-- BUTTON IS TRANSPARENT-->
+      <div class="Home_img">
+        <img src= "/images/Home_icon.png" alt="home-icon">
+      </div>
+    </div>
+  
+    </header>
+
+    <main>
+
+        <aside>
+        <!-- FOR LOGO-->
+        <div class="circle-container">
+            <img src="path/to/your/image.jpg" id="circle_img" alt="LOGO">
+
+            <span class="circle-text"></span>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="search_bar" placeholder="Search here..." />
+        </div>
+            
+        <div class="button-svg-container">
+            <div class="submit1">
+            <input type="button" id="submit" value="Submit" />
+            </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="black" stroke-width="2"/>
+            <path d="M35,50 L50,35 L65,50" fill="none" stroke="black" stroke-width="5" />
+            <path d="M50,35 L50,65" fill="none" stroke="black" stroke-width="5" />
+        </svg>
+
+        </div>
+        <div class="filter-container">
+            <input type="button" id="filter_classrooms" value="Classrooms Section" />
+            <input type="button" id="filter_department" value="Department/Office Section" />
+            <input type="button" id="filter_restrooms" value="Restroom" />
+
+        </div>
+        
+        </aside>
+        <!-- FLOOR MAPS -->
+        <div class="floor_map-container">
+        <img src="/images/2nd floor.png" alt="floor" class="floor_map">
+        </div>
+    </main>
+
+    <!-- SELECT FLOOR-->
+    <div class="floor-container">
+        <select id="floors" name="floor_options" onchange="navigatefloor()">
+            <option value="index1.html">1st Floor</option>
+            <option value="index2.html">2nd Floor</option>
+            <option value="index3.html">3rd Floor</option>
+          
+        </select>
+    
+      
+    </div>
+
+  <script>
+    function navigatefloor(){
+      const select = document.getElementById("floors");
+          const selectedValue = select.value;
+
+          if (selectedValue == "index2") {
+              window.location.href = "{{url_for('index2')}}";
+          }
+          select.value = '';
+    }
+  </script>
+
+</body>
+
+<footer>
+
+  <div class="fire_exit-container">
+    <button id="btn_fire_exit" class="fire_exit_button"> <!-- BUTTON IS TRANSPARENT-->
+    <div class="fire_exit_img">
+      <img src= "/images/Fire_exit_icon.png" alt="Fire-exit-icon">
+    </div>
+  </div>
+
+  <div class="feedback-container">
+    <button id="btn_feedback" class="feedback_button"> <!-- BUTTON IS TRANSPARENT-->
+    <div class="feedback_img">
+      <img src= "/images/Feedback icon.png" alt="Feedback-icon">
+    </div>
+  </div>
+
+</html>
