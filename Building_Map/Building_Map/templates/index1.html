@@ -8,90 +8,92 @@
     <link href="../static/content/styles.css" rel="stylesheet" />
 </head>
 <body>
-  
-  <header>
 
-    <div class="select_campus">
-      <select id="options" name="options">
-        <option value="option1">SV CAMPUS</option>
-        <option value="option2">ST CAMPUS</option>
-      </select>
-    </div>
-    
-    <div class="home-container">
-      <button id="btn_home" class="home_button"> <!-- BUTTON IS TRANSPARENT-->
-          <div class="Home_img">
-              <img src="{{url_for('static', filename='Images/Home_icon.png')}}" />
-          </div>
-    </div>
-  
-  </header>
+    <header>
 
-  <main>
-
-    <aside>
-      <!-- FOR LOGO-->  
-      <div class="circle-container">
-        <img src="path/to/your/image.jpg" id="circle_img" alt="LOGO">
-
-        <span class="circle-text"></span>
-      </div>
-
-      <div class="search-bar">
-        <input type="text" id="search_bar" placeholder="Search here..." />
-      </div>
-          
-      <div class="button-svg-container">
-        <div class="submit1">
-          <input type="button" id="submit" value="Submit" />
+        <div class="select_campus">
+            <select id="options" name="options">
+                <option value="option1">SV CAMPUS</option>
+                <option value="option2">ST CAMPUS</option>
+            </select>
         </div>
 
-      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="45" fill="none" stroke="black" stroke-width="2"/>
-        <path d="M35,50 L50,35 L65,50" fill="none" stroke="black" stroke-width="5" />
-        <path d="M50,35 L50,65" fill="none" stroke="black" stroke-width="5" />
-      </svg>
+        <div class="home-container">
+            <button id="btn_home" class="home_button">
+                <!-- BUTTON IS TRANSPARENT-->
+                <div class="Home_img">
+                    <img src="{{url_for('static', filename='Images/Home_icon.png')}}" />
+                </div>
+        </div>
 
-    </div>
-      <div class="filter-container">
-          <input type="button" id="filter_classrooms" value="Classrooms Section" />
-          <input type="button" id="filter_department" value="Department/Office Section" />
-          <input type="button" id="filter_restrooms" value="Restroom" />
+    </header>
 
-      </div>
-      
-    </aside>
-    <!-- FLOOR MAPS -->
-    <div class="floor_map-container">
-        <!--<img src="/images/1st floor.png" alt="floor" class="floor_map">-->
-        <img class="floor_plan" src="{{url_for('static', filename='Images/1st floor.png')}}" />
-    </div>
+    <main>
 
-  </main>
+        <aside>
+            <!-- FOR LOGO-->
+            <div class="circle-container">
+                <img src="path/to/your/image.jpg" id="circle_img" alt="LOGO">
+
+                <span class="circle-text"></span>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="search_bar" placeholder="Search here..." />
+            </div>
+
+            <div class="button-svg-container">
+                <div class="submit1">
+                    <input type="button" id="submit" value="Submit" />
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="black" stroke-width="2" />
+                    <path d="M35,50 L50,35 L65,50" fill="none" stroke="black" stroke-width="5" />
+                    <path d="M50,35 L50,65" fill="none" stroke="black" stroke-width="5" />
+                </svg>
+
+            </div>
+            <div class="filter-container">
+                <input type="button" id="filter_classrooms" value="Classrooms Section" />
+                <input type="button" id="filter_department" value="Department/Office Section" />
+                <input type="button" id="filter_restrooms" value="Restroom" />
+
+            </div>
+
+        </aside>
+        <!-- FLOOR MAPS -->
+        <div class="floor_map-container">
+            <!--<img src="/images/1st floor.png" alt="floor" class="floor_map">-->
+            <img id="img_map" class="floor_plan" src="{{url_for('static', filename='Images/1st floor.png')}}" usemap="#image-map" />
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <img id="img_modal" src=""/>
+                </div>
+
+            </div>
+
+        </div>
+
+        <map name="image-map">
+            <area target="" alt="yrdy" title="yrdy" href="" coords="287,170,340,218" shape="rect" id="backrooms">
+        </map>
+
+    </main>
     <!-- SELECT FLOOR-->
-  <div class="floor-container">
-    <select id="floors" name="floor_options" onchange="navigatefloor()">
-        <option value="index1"selected>1st Floor</option>
-        <option value="index2">2nd Floor</option>
-        <option value="index3">3rd Floor</option>
-      
-    </select>
+    <div class="floor-container">
+        <select id="floors" name="floor_options" onchange="navigatefloor()">
+            <option value="index1" selected>1st Floor</option>
+            <option value="index2">2nd Floor</option>
+            <option value="index3">3rd Floor</option>
 
-  </div>
+        </select>
 
-  <script>
-    function navigatefloor(){
-      const select = document.getElementById("floors");
-          const selectedValue = select.value;
-
-        if (selectedValue == "index2") {
-            window.location.href = "{{ url_for('index2') }}";
-        }
-        select.value = '';
-          
-    }
-  </script>
-
+    </div>
 
 </body>
 
@@ -114,3 +116,103 @@
   </div>
 
 </html>
+<script src="../static/scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+    function navigatefloor(){
+        const select = document.getElementById("floors");
+        const selectedValue = select.value;
+
+        if (selectedValue == "index1") {
+            //window.location.href = "{{ url_for('index2') }}";
+            $("#img_map").attr("src", "{{url_for('static', filename='Images/1st floor.png')}}");
+            $("#floors select").val("index1").change();
+        }
+
+        else if (selectedValue == "index2") {
+           // window.location.href = "{{ url_for('home') }}";
+            $("#img_map").attr("src", "{{url_for('static', filename='Images/2nd floor.png')}}");
+            $("#floors select").val("index2").change();
+        }
+
+        else if (selectedValue == "index3") {
+            // window.location.href = "{{ url_for('home') }}";
+            $("#img_map").attr("src", "{{url_for('static', filename='Images/2nd floor.png')}}");
+            $("#floors select").val("index3");
+        }
+
+        select.value = '';
+
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        var modal = document.getElementById("myModal");
+        var img_modal = document.getElementById("img_modal");
+        var img_map = document.getElementById("img_map");
+
+        $("#backrooms").on("click", function (e) {
+            e.preventDefault();
+
+            if (modal != null) {
+                modal.style.display = "block";
+                img_modal.src = "{{url_for('static', filename='Images/backrooms.jpg')}}"
+            }
+            
+        });
+
+        $(".close").on("click", function () {
+            modal.style.display = "none";
+        });
+
+        $(window).on("click", function (e) {
+            if (e.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        $("#filter_classrooms").on("click", function () {
+            img_map.src = "{{url_for('static', filename='Images/classroom.jpeg')}}";
+        });
+
+        $("#filter_department").on("click", function () {
+            img_map.src = "{{url_for('static', filename='Images/office.jpeg')}}";
+        });
+
+        $("#filter_restrooms").on("click", function () {
+            img_map.src = "{{url_for('static', filename='Images/restroom.jpg')}}";
+        });
+
+        $("#submit").on("click", function () {
+            var searchVal = $("#search_bar").val();
+
+            switch (searchVal.toLowerCase()) {
+                case "classroom":
+                    img_map.src = "{{url_for('static', filename='Images/classroom.jpeg')}}";
+                    break;
+                case "office":
+                    img_map.src = "{{url_for('static', filename='Images/office.jpeg')}}";
+                    break;
+                case "restroom":
+                    img_map.src = "{{url_for('static', filename='Images/restroom.jpg')}}";
+                    break;
+
+                default:
+                    $("#search_bar").css("border-color", "red");
+            }
+        });
+
+        $("#btn_home").on("click", function () {
+            window.location.href = "{{ url_for('home') }}"
+        });
+
+        $("#btn_feedback").on("click", function () {
+            alert("Create a form here for the feedback. FRONT END");
+        });
+
+        $("#btn_fire_exit").on("click", function () {
+            alert("Upload image here for the current floor with the fire exit indicators.");
+        });
+    });
+</script>

@@ -46,9 +46,13 @@
     <Content Include="Building_Map\static\Images\1st floor.png" />
     <Content Include="Building_Map\static\Images\2nd floor.png" />
     <Content Include="Building_Map\static\Images\3rd floor.png" />
+    <Content Include="Building_Map\static\Images\classroom.jpeg" />
     <Content Include="Building_Map\static\Images\Feedback icon.png" />
     <Content Include="Building_Map\static\Images\Fire_exit_icon.png" />
     <Content Include="Building_Map\static\Images\Home_icon.png" />
+    <Content Include="Building_Map\static\Images\backrooms.jpg" />
+    <Content Include="Building_Map\static\Images\office.jpeg" />
+    <Content Include="Building_Map\static\Images\restroom.jpg" />
     <Content Include="Building_Map\templates\index1.html" />
     <Content Include="Building_Map\templates\index2.html" />
     <Content Include="requirements.txt" />
